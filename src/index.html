@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>goit-js-hw-11</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form class="form">
+        <input
+          class="form-input"
+          type="text"
+          name="request"
+          placeholder="Search images..."
+        />
+        <button class="form-btn" type="submit">Start</button>
+      </form>
+      <span class="loader"></span>
+      <ul class="gallery"></ul>
+    </div>
+  </body>
+  <script type="module" src="./js/render-functions.js"></script>
+  <script type="module" src="./js/pixabay-api.js"></script>
+  <script type="module" src="./main.js"></script>
+</html>

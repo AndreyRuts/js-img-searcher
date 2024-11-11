@@ -1,0 +1,25 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+/* Common styles */
+@import url('./reset.css');
+@import url('./base.css');
+@import url('./container.css');
+/* @import url('./animations.css'); */
+
+/* Sections style */
+/* @import url('./header.css');
+@import url('./vite-promo.css');
+@import url('./badges.css');
+@import url('./back-link.css');
+@import url('./footer.css'); */
+
+/* goit-js-hw-10 styles */
+/* @import url('./timer.css');
+@import url('./snackbar.css'); */
+
+/* goit-js-hw-11 styles */
+@import url('./gall-app.css');
