@@ -18,6 +18,7 @@
   color: black;
   animation: smokeOut 1s ease-in-out infinite alternate;
   text-shadow: 0 0 1px black;
+  text-align: center;
 }
 .loader:before {
   content: 'Loading';
@@ -68,10 +69,13 @@
 .list-item {
   border: 1px solid #808080;
   width: 360px;
+  height: 200px;
 }
-/* .list-item-img{
-
-} */
+.list-item-img {
+  height: 152px;
+  width: 100%;
+  object-fit: cover;
+}
 .info-container {
   margin-top: 4px;
   margin-bottom: 4px;
@@ -100,7 +104,7 @@
   color: #2e2f42;
 }
 /* ---------------------------------------------------------- */
-.load-more-btn{
+.load-more-btn {
   border-radius: 8px;
   padding: 8px 16px;
   width: 125px;
@@ -113,7 +117,7 @@
   line-height: 150%;
   letter-spacing: 0.04em;
   color: #fff;
-  margin: 0  auto;
+  margin: 0 auto;
   margin-top: 32px;
 }
 .load-more-btn:hover {
