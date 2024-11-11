@@ -3,7 +3,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const gallery = document.querySelector(".gallery");
 
 export function renderData(apiArray) {
-    gallery.innerHTML = apiArray.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) =>
+    const markup = apiArray.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) =>
         `<li class="list-item">
             <a href="${largeImageURL}">
                 <img class="list-item-img" src="${webformatURL}" alt="${tags}">
@@ -28,6 +28,8 @@ export function renderData(apiArray) {
             </div>         
         </li>
     `).join("");
+    gallery.insertAdjacentHTML("beforeend", markup);
+
     let simpBox = new SimpleLightbox(".list-item a", {
         captionsData: "alt",
         captionDelay: 250,

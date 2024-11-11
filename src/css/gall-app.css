@@ -99,3 +99,23 @@
   letter-spacing: 0.04em;
   color: #2e2f42;
 }
+/* ---------------------------------------------------------- */
+.load-more-btn{
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 125px;
+  height: 40px;
+  background: #4e75ff;
+  border: 0;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin: 0  auto;
+  margin-top: 32px;
+}
+.load-more-btn:hover {
+  background: #6c8cff;
+}
