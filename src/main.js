@@ -11,16 +11,22 @@ const loadMoreBtn = document.querySelector(".load-more-btn");
 form.addEventListener("submit", handleSubmit);
 loadMoreBtn.addEventListener("click", loadMore);
 
-let page = 30;
+let page = 1;
 let tempReqValue = "";
 const per_page = 15;
 
 async function loadMore(event) {
   event.preventDefault();
-  loadMoreBtn.style.display = "none";
-  await handleRequest();
   page += 1;
-  loadMoreBtn.style.display = "block";
+  await handleRequest();
+  
+  const card = document.querySelector(".list-item");
+  const cardHeight = card.getBoundingClientRect().height;
+  window.scrollBy({
+    left: 0,
+    top: cardHeight * 2,
+    behavior: "smooth"
+  })
 }
 
 function handleSubmit(event) {
@@ -33,20 +39,16 @@ function handleSubmit(event) {
   tempReqValue = requestValue;
   gallery.innerHTML = "";
   handleRequest();
-  page += 1;
 }
 
 async function handleRequest() {
   loader.style.display = "block";
   const data = await fetchData(tempReqValue, page)
-  console.log(data);
-
-  console.log(page);
+  // console.log(data);
+  // console.log(page);
+  // console.log(data.totalHits / per_page);
+  // console.log(page >= (data.totalHits / per_page));
   
-  console.log(data.totalHits / per_page);
-
-  
-  loadMoreBtn.style.display = "block";
   const prepPic = data.hits;
   if (prepPic.length === 0) {
     loadMoreBtn.style.display = "none";
@@ -54,10 +56,15 @@ async function handleRequest() {
       message: 'Sorry, there are no images matching your search query. Please try again!',
       position: 'center',
     });
-  } else if (page > data.totalHits / per_page){
+  } if (page >= (data.totalHits / per_page)) {
+    console.log("some text");
+    iziToast.info({ message: "We're sorry, but you've reached the end of search results."})
     loadMoreBtn.style.display = "none";
     loader.style.display = "none";
+  } else {
+    loadMoreBtn.style.display = "block";
   }
+  
   loader.style.display = "none";
   renderData(data.hits);
   document.querySelector(".form").reset();
